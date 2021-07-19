@@ -1,8 +1,6 @@
 "use strict";
 
-// if (process.env.NODE_ENV === "development") require("dotenv").config();
-
-const env = process.env;
+if (process.env.NODE_ENV === "development") require("dotenv").config();
 
 const express = require("express");
 
@@ -16,7 +14,7 @@ const app = express();
 require("./database");
 
 //Settings
-app.set("port", env.PORT || 3000);
+app.set("port", process.env.PORT || 3000);
 
 //Middlewares
 app.use(express.urlencoded({ extended: false }));

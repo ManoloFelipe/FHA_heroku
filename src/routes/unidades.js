@@ -15,7 +15,11 @@ api.post("/add",  upload.fields([
     { name: "video", maxCount: 1 },
     { name: "fotos", maxCount: 4 },
   ]), uniController.add);
-api.put("/update_:id", uniController.update);
+api.put("/update_:id", upload.fields([
+    { name: "logo", maxCount: 1 },
+    { name: "video", maxCount: 1 },
+    { name: "fotos", maxCount: 4 },
+  ]), uniController.update);
 api.delete("/remove_:id", uniController.removeId);
 
 module.exports = api;

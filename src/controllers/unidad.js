@@ -135,8 +135,8 @@ async function add(req, res) {
 
 function update(req, res) {
   var params = req.body;
-
-  Unidad.findByIdAndUpdate(req.params.id, params, {}, (err, act) => {
+  
+  Unidad.findByIdAndUpdate(req.params.id, params, { new: true }, (err, act) => {
     if (err) return res.status(500).send("error inesperado");
     else if (act) return res.status(200).send(act);
     else return res.status(404).send("error al actualizar la desarrolladora");
